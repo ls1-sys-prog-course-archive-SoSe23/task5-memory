@@ -60,16 +60,16 @@ def main() -> None:
             
             if (test=="threadtest"):
                 s1_2 = res[0] / res[1]
-                s2_4 = res[1] / res[2]
-                if (s1_2 < min_scaling_factor or s2_4 < min_scaling_factor):
+                s1_4 = res[0] / res[2]
+                if (s1_2 < min_scaling_factor or s1_4 < (min_scaling_factor**2)):
                     warn("Allocator does not scale properly. Execution times : " + str(res))
                     exit(1)
                 else:
                     res = []
             elif (test=="larson"):
                 s1_2 = res[1] / res[0]
-                s2_4 = res[2] / res[1]
-                if (s1_2 < min_scaling_factor or s2_4 < min_scaling_factor):
+                s1_4 = res[2] / res[0]
+                if (s1_2 < min_scaling_factor or s1_4 < (min_scaling_factor**2)):
                     warn("Allocator does not scale properly. Throughput : " + str(res))
                     exit(1)
                 else:
